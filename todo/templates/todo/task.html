@@ -1,0 +1,12 @@
+{% extends 'todo/index.html' %} 
+{% block content %} 
+<div class="header-bar">
+  <a href="{%url 'task'%}">&#8592; Back</a>
+  <br>
+  <h1>Task Description</h1>
+</div>
+<div class="card-body">
+  <h3>Title: {{task.title}}</h3>  
+  <h4>{{task.desc}}</h4>
+</div>
+{%endblock content%}

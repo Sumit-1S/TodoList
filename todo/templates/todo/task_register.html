@@ -1,0 +1,29 @@
+{% extends 'todo/index.html' %} 
+{% block content %} 
+
+<div class="header-bar">
+<h1>Register</h1>
+</div>
+<div class="card-body">
+  <form method="post" action="">
+    {%csrf_token%}
+    {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %} 
+              <div class="danger">
+                    <strong>{{ error|escape }}</strong>
+              </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+    <label>{{form.username.label}}</label>{{form.username}}
+    <label>{{form.password1.label}}</label>{{form.password1}}
+    <label>{{form.password2.label}}</label>{{form.password2}}
+    <br><br>
+    <input class="button" type="submit" value="Regiter" />
+    <small><p>Have an account Already <a href="{%url 'Login'%}">Login</a></p></small>
+
+  </form>
+ 
+</div>
+{%endblock content%}

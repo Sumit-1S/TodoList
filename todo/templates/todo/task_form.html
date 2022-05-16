@@ -1,0 +1,24 @@
+{% extends 'todo/index.html' %} 
+{% block content %} 
+
+<div class="header-bar">
+  <a href="{%url 'task'%}">&#8592; Back</a>
+  <br>
+  <h1>Task Form</h1>
+</div>
+<div class="card-body">
+<form action="" method="POST">
+  {% csrf_token %}
+  <label>{{form.title.label}}</label>{{form.title}}
+  <label>{{form.desc.label}}</label>
+  {%if form.desc.value%}
+  <textarea name="desc" cols="200" rows="4" maxlength="10000" id="id_desc" style="width: 459px; height: 70px;">{{form.desc.value}}</textarea>
+  {%else%}
+  <textarea name="desc" cols="200" rows="4" maxlength="10000" id="id_desc" style="width: 459px; height: 70px;"></textarea>
+  {%endif%}
+  <p>{{form.complete}} {{form.complete.label}}</p>
+  <input class="button" type="submit" />
+</form>
+<a href="{% url 'task' %}">Home</a>
+</div>
+{%endblock content%}

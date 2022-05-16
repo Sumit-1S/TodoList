@@ -1,0 +1,13 @@
+{% extends 'todo/index.html' %} 
+{% block content %} 
+
+<div class="card-body">
+<form action="" method="post">
+  {%csrf_token%}
+  <p>Are you sure you want to delete - {{task}}??</p>
+  <input class="button" type="submit" value="Yes, delete">
+  <input class="button" type="button" value="Cancel" onclick="location.href='{%url 'task' %}'">
+</form>
+
+</div>
+{%endblock content%}
